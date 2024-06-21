@@ -878,8 +878,8 @@ class DetMetrics(SimpleClass):
     def results_dict(self):
         """Returns dictionary of computed performance metrics and statistics."""
         """add self.maps() and self.ap_class_index() for individual class AP metrics"""
-        # return dict(zip(self.keys + ["fitness"], self.mean_results() + [self.fitness]))
-        return dict(zip(self.keys + ["fitness"] + self.maps(), self.mean_results() + [self.fitness] + self.ap_class_index()))
+        return dict(zip(self.keys + ["fitness"], self.mean_results() + [self.fitness]))
+        #return dict(zip(self.keys + [("metrics/" + str(i)) for i in self.ap_class_index] + ["fitness"], self.mean_results() + [self.maps(i) for i in self.ap_class_index] + [self.fitness]))
 
     @property
     def curves(self):
